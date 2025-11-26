@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNIHELPER — الكتب</title>
+  <link rel="stylesheet" href="books.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>UNIHELPER — الكتب</h1>
+  </header>
+
+  <main class="layout">
+    <!-- نموذج إضافة إعلان -->
+    <aside class="card sidebar">
+      <h2>إضافة إعلان</h2>
+
+      <form id="bookForm" class="form">
+        <label>
+          اسم الكتاب / السلايدات
+          <input type="text" id="title" required placeholder="مثال: Discrete Mathematics">
+        </label>
+
+        <label>
+          كود المادة
+          <input type="text" id="course" placeholder="مثال: MATH-201">
+        </label>
+
+        <label>
+          نوع المادة
+          <select id="type" required>
+            <option value="">اختاري</option>
+            <option value="كتاب">كتاب</option>
+            <option value="سلايدات مطبوعة">سلايدات مطبوعة</option>
+          </select>
+        </label>
+
+        <label>
+          حالة العنصر
+          <select id="condition" required>
+            <option value="">اختاري</option>
+            <option value="جديد">جديد</option>
+            <option value="مستعمل - نظيف">مستعمل - نظيف</option>
+            <option value="مستعمل - فيه كتابات">مستعمل - فيه كتابات</option>
+          </select>
+        </label>
+
+        <label>
+          الغرض
+          <select id="status" required>
+            <option value="">اختاري</option>
+            <option value="بيع">بيع</option>
+            <option value="إعارة">إعارة</option>
+            
+          </select>
+        </label>
+
+        <label>
+          السعر / الوديعة (اختياري)
+          <input type="number" id="price" min="0" placeholder="مثال: 40">
+        </label>
+
+        <label>
+          وسيلة التواصل
+          <input type="text" id="contact" required placeholder="مثال: رقم الجوال أو إيميل">
+        </label>
+
+        <label>
+          ملاحظات إضافية
+          <textarea id="notes" rows="3" placeholder=></textarea>
+        </label>
+
+        <button type="submit" class="btn primary">نشر الإعلان</button>
+      </form>
+    </aside>
+
+    <!-- منطقة عرض الإعلانات -->
+    <section class="card content">
+      <div class="filters-bar">
+        <input type="text" id="search" placeholder="بحث بالاسم أو كود المادة...">
+        <select id="filterType">
+          <option value="">الكل (النوع)</option>
+          <option value="كتاب">كتب</option>
+          <option value="سلايدات مطبوعة">سلايدات مطبوعة</option>
+        </select>
+        <select id="filterCondition">
+          <option value="">الكل (الحالة)</option>
+          <option value="جديد">جديد</option>
+          <option value="مستعمل - نظيف">مستعمل - نظيف</option>
+          <option value="مستعمل - فيه كتابات">مستعمل - فيه كتابات</option>
+        </select>
+      </div>
+
+      <h2>الإعلانات</h2>
+      <div id="adsList" class="ads-list">
+        <!-- إعلانات الكتب تتولد هنا من JS -->
+      </div>
+    </section>
+  </main>
+
+  <script src="books.js"></script>
+  <a href="index.html" class="btn">الجدول المساعد 🗓️</a>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+{<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>مساعد الجدول – خطط الحاسب</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>مساعد الجدول</h1>
+    <p class="sub">اختاري الخطة ← ثم المواد والشُعب، وشوفي التعارض والمتطلبات قبل التسجيل</p>
+  </header>
+
+  <main class="layout">
+    <section class="toolbar">
+      <label>الخطة:
+        <select id="programSelect">
+          <option value="SE">هندسة برمجيات</option>
+          <option value="CE">هندسة حاسب</option>
+          <option value="CS">علوم حاسب</option>
+        </select>
+      </label>
+
+      <label>المستوى:
+        <select id="levelFilter">
+          <option value="all">الكل</option>
+          <option value="1">الأول</option>
+          <option value="2">الثاني</option>
+          <option value="3">الثالث</option>
+          <option value="4">الرابع</option>
+          <option value="5">الخامس</option>
+          <option value="6">السادس</option>
+          <option value="7">السابع</option>
+          <option value="8">الثامن</option>
+          <option value="9">التاسع</option>
+          <option value="10">العاشر</option>
+        </select>
+      </label>
+
+      <label class="chk">
+        <input type="checkbox" id="warnOnly" />
+        عرض تحذير فقط عند التعارض (بدل المنع)
+      </label>
+    </section>
+
+    <!-- شبكة الخطة -->
+    <section id="planGrid" class="grid"></section>
+
+    <!-- اللوحة الجانبية -->
+    <aside class="sidebar">
+      <h2>الشُعب المختارة</h2>
+      <ul id="picked"></ul>
+
+      <h3>التعارضات</h3>
+      <div id="conflicts" class="box"></div>
+
+      <h3>متطلبات مسبقة</h3>
+      <div id="prereqBox" class="box"></div>
+    </aside>
+  </main>
+
+  <!-- حوار اختيار الشعبة -->
+  <dialog id="sectionDialog">
+    <form method="dialog" id="sectionForm">
+      <h3 id="courseTitle"></h3>
+      <p id="coursePrereq" class="note"></p>
+
+      <div id="sectionsList"></div>
+      <menu>
+        <button type="button" id="cancelBtn">إلغاء</button>
+        <button type="submit" id="chooseBtn">اختيار</button>
+      </menu>
+    </form>
+  </dialog>
+
+ 
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+  <a href="books.html" class="btn"> الكتب 📚</a>
+
+</body>
+</html>
+}

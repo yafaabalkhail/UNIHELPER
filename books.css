@@ -1,0 +1,182 @@
+:root {
+  --bg: #FFF9F7;        /* نفس الخلفية */
+  --ink: #2D2A32;       /* لون النص */
+  --card: #ffffff;      /* لون الكروت */
+  --line: #eee;         /* لون الحدود */
+  --primary: #F8E7D8;   /* لون الأزرار (نفس صفحة الجدول) */
+  --chip-bg: #FFF1E8;   /* خلفية الوسوم */
+  --muted: #888;
+}
+
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Tajawal", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.topbar {
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 16px;
+  padding: 16px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 16px #0001;
+}
+
+.sidebar h2,
+.content h2 {
+  margin-top: 0;
+}
+
+/* نموذج */
+.form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  display: grid;
+  gap: 4px;
+  font-size: 0.9rem;
+}
+
+input, select, textarea {
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+textarea { resize: vertical; }
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: var(--chip-bg);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.btn.primary {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+/* شريط الفلاتر */
+.filters-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.filters-bar input,
+.filters-bar select {
+  flex: 1 1 160px;
+}
+
+/* بطاقات الإعلانات */
+.ads-list {
+  display: grid;
+  gap: 10px;
+}
+
+.ad-card {
+  border-radius: 12px;
+  border: 1px solid #eee;
+  padding: 10px 12px;
+  background: #fff;
+}
+
+.ad-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.ad-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.ad-course {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 6px 0;
+}
+
+.tag {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  background: var(--chip-bg);
+}
+
+.tag.status-بيع { background: #ffe6ea; }
+.tag.status-إعارة { background: #e6f3ff; }
+.tag.status-مبادلة { background: #e9ffea; }
+
+.ad-notes {
+  font-size: 0.85rem;
+  margin: 4px 0;
+}
+
+.ad-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  font-size: 0.85rem;
+}
+
+.ad-contact {
+  color: var(--ink);
+}
+
+.btn-danger {
+  background: #ffe2e2;
+  border-color: #ffc4c4;
+}
