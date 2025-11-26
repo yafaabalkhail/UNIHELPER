@@ -45,3 +45,21 @@ menu{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
   .layout{grid-template-columns:1fr}
   .grid{grid-template-columns:repeat(2,minmax(140px,1fr))}
 }
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.main-nav a {
+  text-decoration: none;
+  background: #cda4a4;
+  color: black;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+

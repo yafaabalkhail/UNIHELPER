@@ -1,10 +1,10 @@
 :root {
-  --bg: #FFF9F7;        /* نفس الخلفية */
-  --ink: #2D2A32;       /* لون النص */
-  --card: #ffffff;      /* لون الكروت */
-  --line: #eee;         /* لون الحدود */
-  --primary: #F8E7D8;   /* لون الأزرار (نفس صفحة الجدول) */
-  --chip-bg: #FFF1E8;   /* خلفية الوسوم */
+  --bg: #FFF9F7;        
+  --ink: #2D2A32;       
+  --card: #ffffff;     
+  --line: #eee;       
+  --primary: #F8E7D8;  
+  --chip-bg: #FFF1E8;  
   --muted: #888;
 }
 
@@ -179,4 +179,20 @@ textarea { resize: vertical; }
 .btn-danger {
   background: #ffe2e2;
   border-color: #ffc4c4;
+}
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.main-nav a {
+  text-decoration: none;
+  background: #cda4a4;
+  color: black;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 14px;
 }
