@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UniHelper - الصفحة الرئيسية</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* تنسيق الجسم */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: white;
+      margin: 0;
+      padding: 0;
+      direction: rtl;
+      overflow-x: hidden;
+    }
+
+    /* حركات النصوص */
+    h1, h3 {
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* الصفحة الرئيسية */
+    .homepage {
+      padding: 30px;
+      text-align: center;
+    }
+.university-logo {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 80px;
+    }
+    /* حاوية الأزرار */
+    .card-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    /* تنسيق المربعات */
+    .card {
+      background-color: #f9f4ee;  /* لون مستوحى من الشعار */
+      padding: 25px;
+      border-radius: 12px;
+      width: 220px;
+      margin: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-in-out forwards;
+      animation-delay: 0.4s;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h3 {
+      font-size: 20px;
+      color: #3e2723;  /* بني غامق */
+      margin-bottom: 15px;
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px; /* لضبط الصورة داخل المربع */
+      object-fit: cover; /* جعل الصورة تتناسب مع المربع */
+      border-radius: 10px;
+      opacity: 0.7; /* تخفيف الصورة */
+      margin-bottom: 15px;
+    }
+
+    .card button {
+      background-color: #8a674a;  /* اللون البني الداكن */
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .card button:hover {
+      background-color: #8a674a;
+    }
+
+    /* تنسيق زر تسجيل الخروج */
+    .logout {
+      margin-top: 50px;
+    }
+
+    .logout button {
+      background-color: #8a674a;  /* البني الداكن */
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .logout button:hover {
+      background-color: #8a674a;
+    }
+
+    /* الفوتر */
+    footer {
+      background-color: #f9f4ee;  /* نفس اللون البيج الفاتح */
+      padding: 15px;
+      margin-top: 50px;
+      font-size: 14px;
+      color: #3e2723;  /* بني غامق */
+      text-align: center;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+
+    footer a {
+      color: #6b4f3d;  /* اللون البني الداكن */
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    /* استعلامات إعلامية للأجهزة الصغيرة */
+    @media (max-width: 768px) {
+      /* تعديل عرض البطاقات */
+      .card-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        width: 90%;  /* جعل البطاقات تأخذ عرض أكبر على الأجهزة الصغيرة */
+        margin: 10px 0; /* إضافة مسافة بين البطاقات */
+      }
+
+      .homepage h1 {
+        font-size: 24px; /* تقليل حجم الخط في العنوان */
+      }
+
+      .card h3 {
+        font-size: 18px; /* تقليل حجم الخط في العناوين داخل البطاقات */
+      }
+
+      .logout button {
+        width: 100%; /* جعل زر تسجيل الخروج يغطي كامل العرض */
+      }
+
+      footer p {
+        font-size: 12px; /* تقليل حجم الخط في الفوتر للأجهزة الصغيرة */
+      }
+
+      footer a {
+        font-size: 12px; /* تقليل حجم الخط للروابط في الفوتر */
+      }
+
+      /* إضافة مسافة بين النصوص والبطاقات في الصفحة الرئيسية */
+      .homepage p {
+        font-size: 16px;
+        margin-top: 15px;
+      }
+
+      /* تقليل حجم الصور داخل البطاقات */
+      .card img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="homepage">
+    <h1 style="color: #6b4f3d;">UniHelper</h1>
+    <p style="color: #6b4f3d;">مرحبًا بك في موقعنا! اختر الخدمة التي تناسبك:</p>
+
+    <!-- إضافة شعار الجامعة في الزاوية العليا اليمنى -->
+    <div class="university-logo">
+      <img src="mustaqbal.logo.png" alt="شعار جامعة المستقبل" width="100" height="100">
+    </div>
+
+    <!-- حاوية الأزرار -->
+    <div class="card-container">
+      <!-- خريطة الكلية -->
+      <div class="card">
+        <h3>خريطة كلية الهندسة والحاسب</h3>
+        <img src="Map.jpg" alt="خريطة الكلية">
+        <a href="map.html">
+          <button>عرض الخريطة</button>
+        </a>
+      </div>
+
+      <!-- بيع وشراء الكتب -->
+      <div class="card">
+        <h3>بيع وشراء الكتب</h3>
+        <img src="Books.photo.jpg" alt="بيع الكتب">
+        <a href="books.html">
+          <button>انتقل لصفحة الكتب</button>
+        </a>
+      </div>
+
+      <!-- الجدول المساعد -->
+      <div class="card">
+        <h3>الجدول المساعد</h3>
+        <img src="SCH.photo.jpg" alt="الجدول المساعد">
+        <a href="schedule.html">
+          <button>عرض الجدول</button>
+        </a>
+      </div>
+    </div>
+
+    <!-- زر تسجيل الخروج -->
+    <div class="logout">
+      <a href="logout.php">
+        <button>تسجيل الخروج</button>
+      </a>
+    </div>
+
+    <!-- الفوتر -->
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2025 UniHelper</p>
+        <p>للتواصل: <a href="mailto:youremail@example.com">waalyousef@uom.edu.sa</a> | <a href="mailto:anotheremail@example.com">ymabalkhail@uom.edu.sa</a></p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- إضافة JavaScript للتفاعل -->
+  <script>
+    // تأثير عند الضغط على الأزرار
+    document.querySelectorAll('.card button').forEach(button => {
+      button.addEventListener('click', function() {
+        this.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+          this.style.transform = 'scale(1)';
+        }, 200);
+      });
+    });
+
+    // إشعار تأكيد الخروج
+    document.querySelector('.logout button').addEventListener('click', function(event) {
+      event.preventDefault(); // منع الانتقال الفوري
+      if (confirm('هل أنت متأكد أنك تريد تسجيل الخروج؟')) {
+        window.location.href = 'logout.php'; // الانتقال إلى صفحة الخروج
+      }
+    });
+
+    // تأثير التنقل بين الصفحات
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault(); // منع الانتقال العادي
+        const targetPage = this.getAttribute('href');
+        document.body.style.opacity = '0'; // تقليل الشفافية
+        setTimeout(() => {
+          window.location.href = targetPage; // الانتقال بعد التأثير
+        }, 500);
+      });
+    });
+  </script>
+</body>
+</html>
