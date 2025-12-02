@@ -1,181 +1,93 @@
-<!DOCTYPE html>
-<html lang="ar">
+{<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تسجيل الدخول / تسجيل جديد</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #ffffff;
-      margin: 0;
-      padding: 0;
-      direction: rtl;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      position: relative;
-    }
-
-    .university-logo {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 100px;
-      height: auto;
-    }
-
-    .form-container {
-      background-color: #f9f4ee;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px #c6c3bc(252, 249, 249, 0.1);
-      width: 100%;
-      max-width: 450px;
-    }
-
-    h2 {
-      font-size: 26px;
-      margin-bottom: 20px;
-      color: #6b4f3d;
-      text-align: center;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      text-align: right;
-      color: #333;
-      font-size: 14px;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border-radius: 5px;
-      border: 1px solid #c6c3bc;
-      font-size: 14px;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #6b4f3d;
-      color: #ffffff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    button:hover {
-      background-color: #8a674a;
-    }
-
-    .switch-link {
-      text-align: center;
-      margin-top: 20px; /* زيادة المسافة بين النص "ليس لديك حساب؟" وزر "تسجيل الدخول" */
-    }
-
-    .switch-link a {
-      color: #6b4f3d;
-      text-decoration: none;
-    }
-
-    .switch-link a:hover {
-      text-decoration: underline;
-    }
-
-    /* تصغير وتنسيق نموذج "تسجيل جديد" */
-    #register-form {
-      width: 90%; /* عرض النموذج 80% من العرض الكامل */
-      max-width: 350px; /* أقصى عرض للنموذج */
-      margin: 0 auto; /* توسيط النموذج */
-      padding: 15px; /* تقليل المسافات الداخلية */
-      height: auto; /* سيتكيف النموذج مع الطول المطلوب */
-      box-sizing: border-box; /* لضبط المسافات الداخلية بشكل صحيح */
-    }
-
-    /* إضافة رابط "هل نسيت كلمة المرور؟" */
-    .forgot-password {
-      display: block;
-      text-align: center; /* لتوسيط الرابط */
-      color: #6b4f3d;
-      font-size: 14px;
-      margin-top: 20px; /* زيادة المسافة بين الرابط وزر "تسجيل الدخول" */
-    }
-    @media (max-width: 768px) {
-      .form-container {
-        width: 90%;
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>مساعد الجدول – خطط الحاسب</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <img src="mustaqbal.logo.png" alt="شعار جامعة المستقبل" class="university-logo">
+  <header>
+    <h1>مساعد الجدول</h1>
+    <p class="sub">اختاري الخطة ← ثم المواد والشُعب، وشوفي التعارض والمتطلبات قبل التسجيل</p>
+  </header>
 
-  <div class="form-container">
-    <!-- نموذج تسجيل الدخول -->
-    <div id="login-form">
-      <h2>تسجيل الدخول</h2>
-      <form action="login.php" method="POST">
-        <label for="email">البريد الإلكتروني</label>
-        <input type="email" id="email" name="email" required placeholder="أدخل بريدك الإلكتروني">
-        
-        <label for="password">كلمة المرور</label>
-        <input type="password" id="password" name="password" required placeholder="أدخل كلمة المرور">
-        
-        <a href="forgot-password.html" class="forgot-password">هل نسيت كلمة المرور؟</a>
-        <br>
-        <button type="submit">تسجيل الدخول</button>
-        <p class="switch-link">ليس لديك حساب؟ <a href="javascript:void(0);" onclick="toggleForm('register')">سجل الآن</a></p>
-      </form>
-    </div>
+  <main class="layout">
+    <section class="toolbar">
+      <label>الخطة:
+        <select id="programSelect">
+          <option value="SE">هندسة برمجيات</option>
+          <option value="CE">هندسة حاسب</option>
+          <option value="CS">علوم حاسب</option>
+        </select>
+      </label>
 
-    <!-- نموذج التسجيل الجديد -->
-    <div id="register-form" style="display:none;">
-      <h2>تسجيل جديد</h2>
-      <form action="register.php" method="POST">
-        <label for="first-name">الاسم الأول</label>
-        <input type="text" id="first-name" name="first-name" required placeholder="أدخل اسمك الأول">
-        
-        <label for="last-name">الاسم الأخير</label>
-        <input type="text" id="last-name" name="last-name" required placeholder="أدخل اسمك الأخير">
-        
-        <label for="phone">الرقم</label>
-        <input type="tel" id="phone" name="phone" required placeholder="أدخل رقمك">
-        
-        <label for="email-register">البريد الإلكتروني</label>
-        <input type="email" id="email-register" name="email-register" required placeholder="أدخل بريدك الإلكتروني">
-        
-        <label for="password-register">كلمة المرور</label>
-        <input type="password" id="password-register" name="password-register" required placeholder="أدخل كلمة المرور">
-        
-        <button type="submit">تسجيل</button>
-        <p class="switch-link">لديك حساب بالفعل؟ <a href="javascript:void(0);" onclick="toggleForm('login')">تسجيل الدخول</a></p>
-      </form>
-    </div>
-  </div>
+      <label>المستوى:
+        <select id="levelFilter"> 
+          <option value="all">الكل</option>
+          <option value="1">الأول</option>
+          <option value="2">الثاني</option>
+          <option value="3">الثالث</option>
+          <option value="4">الرابع</option>
+          <option value="5">الخامس</option>
+          <option value="6">السادس</option>
+          <option value="7">السابع</option>
+          <option value="8">الثامن</option>
+          <option value="9">التاسع</option>
+          <option value="10">العاشر</option>
+        </select>
+      </label>
 
-  <script>
-    // التبديل بين نموذج تسجيل الدخول والتسجيل
-    function toggleForm(formType) {
-      if (formType === 'login') {
-        document.getElementById('login-form').style.display = 'block';
-        document.getElementById('register-form').style.display = 'none';
-      } else {
-        document.getElementById('login-form').style.display = 'none';
-        document.getElementById('register-form').style.display = 'block';
-      }
-    }
+      <label class="chk">
+        <input type="checkbox" id="warnOnly" />
+        عرض تحذير فقط عند التعارض (بدل المنع)
+      </label>
+    </section>
 
-    // عند تحميل الصفحة، نعرض نموذج تسجيل جديد بشكل افتراضي
-    window.onload = function() {
-      document.getElementById('register-form').style.display = 'block'; // إظهار نموذج تسجيل جديد
-      document.getElementById('login-form').style.display = 'none';  // إخفاء نموذج تسجيل الدخول
-    }
-  </script>
+    <!-- شبكة الخطة -->
+    <section id="planGrid" class="grid"></section>
+
+    <!-- اللوحة الجانبية -->
+    <aside class="sidebar">
+      <h2>الشُعب المختارة</h2>
+      <ul id="picked"></ul>
+
+      <h3>التعارضات</h3>
+      <div id="conflicts" class="box"></div>
+
+      <h3>متطلبات مسبقة</h3>
+      <div id="prereqBox" class="box"></div>
+    </aside>
+  </main>
+
+  <!-- حوار اختيار الشعبة -->
+  <dialog id="sectionDialog">
+    <form method="dialog" id="sectionForm">
+      <h3 id="courseTitle"></h3>
+      <p id="coursePrereq" class="note"></p>
+
+      <div id="sectionsList"></div>
+      <menu>
+        <button type="button" id="cancelBtn">إلغاء</button>
+        <button type="submit" id="chooseBtn">اختيار</button>
+      </menu>
+    </form>
+  </dialog>
+
+ 
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+
+ <nav class="main-nav">
+  
+  <a href="books.html">📚 الكتب</a>
+</nav>
+
+
+
+
+
 </body>
 </html>
+}
